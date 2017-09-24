@@ -1,0 +1,187 @@
+
+---
+title: "Mixture of Gaussian test"
+author: "H Qin"
+date: "9/24/2017"
+output: html_document
+---
+
+See  http://hongqinlab.blogspot.com/2017/09/em-example.html
+
+Generate two random variables from 2 Gaussian distributions
+```{r}
+set.seed(20170924)
+P.b = 0.6
+N = 100
+xa = rnorm(N*P.b, mean=1, sd=1)
+xb = rnorm(N*(1-P.b), mean=5, sd=3)
+x = c(xa, xb)
+mu.a = 0.5; sd.a= 0.5;
+mu.b= 6; sd.b = 4;
+
+```
+
+#1 
+```{r}
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+```
+
+```{r}
+a = 1 - b
+plot( 1 - b)
+```
+#2 
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+```
+
+```{r}
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+a = 1 - b; 
+plot(a)
+```
+
+#3 
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+a = 1 - b; 
+plot(a)
+```
+
+#4
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+a = 1 - b; 
+plot(a)
+```
+
+#5 
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+a = 1 - b; 
+plot(a)
+```
+
+
+#6
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+a = 1 - b; 
+plot(a)
+```
+
+
+
+#7 
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+plot(b)
+a = 1 - b; 
+plot(a)
+```
+
+
+#8
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+#plot(b)
+a = 1 - b; 
+#plot(a)
+```
+
+#9
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+#plot(b)
+a = 1 - b; 
+#plot(a)
+```
+
+
+#10
+```{r}
+mu.a = sum(a*x)/sum(a); paste("mu.a=",mu.a);
+mu.b = sum(b*x)/sum(b); paste("mu.b=",mu.b);
+var.a = sum((x - mu.a)^2*a)/sum(a); sqrt(var.a); sd.a = sqrt(var.a)
+var.b = sum((x - mu.b)^2*b)/sum(b); sqrt(var.b); sd.b = sqrt(var.b)
+
+pdf.a = dnorm(x, mean=mu.a, sd=sd.a);
+pdf.b = dnorm(x, mean=mu.b, sd=sd.b)
+
+b = pdf.b*P.b / (pdf.a * (1-P.b) + pdf.b*P.b)
+#plot(b)
+a = 1 - b; 
+#plot(a)
+```
+
